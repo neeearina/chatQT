@@ -1,3 +1,4 @@
+import select
 import socket
 import sys
 
@@ -35,6 +36,8 @@ class MainWindow(PyQt5.QtWidgets.QMainWindow):
 
     def send_message(self):
         text = self.messagePlain.toPlainText()
+        if client_socket in select.select([client_socket], [], [], 0)[0]:
+            self.chatPlain.appendPlainText(client_socket.recv(1024).decode())
         client_socket.send(bytes(text, "utf-8"))
         self.chatPlain.appendPlainText(client_socket.recv(1024).decode())
         self.messagePlain.clear()

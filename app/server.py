@@ -21,5 +21,6 @@ while True:
                                        client_sockets, 0)
             if client_socket in cl_r:
                 data = client_socket.recv(1024).decode()
-                new_str = "\nyou: " + data
-                client_socket.send(bytes(new_str, "utf-8"))
+                new_str = f"\nfrom {address}: " + data
+                for socket in client_sockets:
+                    socket.send(bytes(new_str, "utf-8"))
