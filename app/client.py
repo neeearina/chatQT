@@ -96,7 +96,7 @@ class MainWindow(PyQt5.QtWidgets.QMainWindow):
             self.infoLable.setText("The name must consist of letters")
 
     def change_window_color(self):
-        print("a")
+        pass
 
 
 app = PyQt5.QtWidgets.QApplication(sys.argv)
