@@ -34,10 +34,9 @@ class MainWindow(PyQt5.QtWidgets.QMainWindow):
         self.messagePlain.clear()
 
     def send_message(self):
-        client_socket.send(bytes(
-            self.messagePlain.toPlainText() + "\n", "utf-8"))
-        self.chatPlain.appendPlainText(
-            "\n you: " + self.messagePlain.toPlainText())
+        text = self.messagePlain.toPlainText()
+        client_socket.send(bytes(text, "utf-8"))
+        self.chatPlain.appendPlainText(client_socket.recv(1024).decode())
         self.messagePlain.clear()
 
 
