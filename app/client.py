@@ -1,7 +1,11 @@
+import socket
 import sys
 
 import PyQt5.QtWidgets
 import PyQt5.uic
+
+client_socket = socket.socket()
+client_socket.connect(("localhost", 8080))
 
 
 class MainWindow(PyQt5.QtWidgets.QMainWindow):
@@ -30,7 +34,11 @@ class MainWindow(PyQt5.QtWidgets.QMainWindow):
         self.messagePlain.clear()
 
     def send_message(self):
-        print("bbb")
+        client_socket.send(bytes(
+            self.messagePlain.toPlainText() + "\n", "utf-8"))
+        self.chatPlain.appendPlainText(
+            "\n you: " + self.messagePlain.toPlainText())
+        self.messagePlain.clear()
 
 
 app = PyQt5.QtWidgets.QApplication(sys.argv)
