@@ -39,7 +39,7 @@ class ChatWindow(PyQt5.QtWidgets.QMainWindow):
         self.socket_thread.start()
 
     def handle_received_data(self, received_data):
-        self.chatPlain.appendPlainText(f"{self.name}: {received_data}")
+        self.chatPlain.appendPlainText(received_data)
 
     def ui_components(self):
         self.setWindowTitle("Chat")
@@ -61,7 +61,8 @@ class ChatWindow(PyQt5.QtWidgets.QMainWindow):
     def send_message(self):
         text = self.messagePlain.toPlainText()
         if text != "":
-            client_socket.send(bytes(text, "utf-8"))
+            new_st = f"{self.name}: {text}"
+            client_socket.send(bytes(new_st, "utf-8"))
             self.messagePlain.clear()
 
 
@@ -100,5 +101,6 @@ class MainWindow(PyQt5.QtWidgets.QMainWindow):
 
 
 app = PyQt5.QtWidgets.QApplication(sys.argv)
-window = MainWindow()
+window1 = MainWindow()
+
 sys.exit(app.exec())
