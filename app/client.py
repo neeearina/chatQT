@@ -7,13 +7,13 @@ import PyQt5.uic
 class MainWindow(PyQt5.QtWidgets.QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        PyQt5.uic.loadUi('form.ui', self)
+        PyQt5.uic.loadUi("form.ui", self)
         self.ui_components()
         self.btn_functions()
         self.show()
 
     def ui_components(self):
-        self.setWindowTitle('Chat')
+        self.setWindowTitle("Chat")
         self.chatPlain.setReadOnly(True)
         btn_settings = (
             "QPushButton { background-color: #4B0082 }"
