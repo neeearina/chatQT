@@ -4,8 +4,8 @@
 
 ### Главное окно приложения
 
-![Главное окно](https://github.com/neeearina/chatQT/main/screens/main.jpg)
+![Главное окно](https://github.com/neeearina/chatQT/raw/main/screens/main.jpg)
 
 ### Главное окно приложения
 
-![Окно чата](https://github.com/neeearina/chatQT/main/screens/chat.jpg)
+![Окно чата](https://github.com/neeearina/chatQT/raw/main/screens/chat.jpg)
