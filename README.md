@@ -15,7 +15,7 @@
 ### Склонируйте репозиторий с помощью git команды:
 
 ```commandline
-git clone https://github.com/neeearina/eduAPI.git
+git clone https://github.com/neeearina/chatQT.git
 ```
 
 ### Создайте виртуальное окружение и активируйте его:
